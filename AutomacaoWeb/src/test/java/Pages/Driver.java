@@ -9,6 +9,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 public class Driver {
     public static WebDriver driver;
+
     @Before
     public void iniciarDriver() {
         driver = new ChromeDriver(chromeOptions());
@@ -20,7 +21,7 @@ public class Driver {
         driver.quit();
     }
 
-    private ChromeOptions chromeOptions(){
+    private ChromeOptions chromeOptions() {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--disable-notifications");
         options.addArguments("--disable-infobars");
