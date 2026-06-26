@@ -43,7 +43,11 @@ public class Utilitarios {
 
     public String armazenarTextoElemento(By elemento, int tempo) {
         aguardarElementoEstarPresente(elemento, tempo);
-        return driver.findElement(elemento).getText();
+        return driver.findElement(elemento).getText().trim();
     }
 
+    public boolean elementoEstaPresente(By elemento, int tempo) {
+        aguardarElementoEstarPresente(elemento, tempo);
+        return driver.findElement(elemento).isDisplayed();
+    }
 }

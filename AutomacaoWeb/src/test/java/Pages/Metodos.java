@@ -12,6 +12,7 @@ public class Metodos extends Utilitarios {
     public By lupaPesquisa = By.xpath("//input[@id='headerSearch']//following-sibling::ptz-icon");
     public By valorProdutoTela = By.xpath("//p[@class='text-ptz-md font-bold']");
     public By valorProdutoTelaCarrinho = By.xpath("//div[@data-testid='ptz-bag-resume-amount']");
+    public By botaoCookies = By.xpath("//button[@id='onetrust-accept-btn-handler']");
 
     public By textoTela(String texto) {
         return By.xpath("//p[contains(text(),'"+texto+"')]");
@@ -25,6 +26,11 @@ public class Metodos extends Utilitarios {
         driver.get(url);
     }
 
+    public void fecharCookies() {
+        if (elementoEstaPresente(botaoCookies, 30)){
+            clicar(botaoCookies, 30);
+        }
+    }
     public void pesquisaProduto(String produto) {
         aguardarElementoEstarPresente(componenteDePesquisa, 30);
         clicar(componenteDePesquisa, 30);
@@ -32,8 +38,9 @@ public class Metodos extends Utilitarios {
         clicar(lupaPesquisa, 30);
     }
 
-    public void acessarProdutoPesquisa(String produto) {
+    public void acessarProdutoPesquisa(String produto) throws InterruptedException {
         aguardarElementoEstarPresente(textoTela(produto), 30);
+        Thread.sleep(3000);
         clicar(textoTela(produto), 30);
     }
 

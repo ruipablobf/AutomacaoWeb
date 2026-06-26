@@ -12,10 +12,11 @@ public class Steps {
     @Dado("acesso o site petz com a url {string}")
     public void acessarPetz(String url) {
         metodos.abrirURL(url);
+        metodos.fecharCookies();
     }
 
     @E("realizo a pesquisa e acesso o produto {string}")
-    public void pesquisaDoProduto(String nome) {
+    public void pesquisaDoProduto(String nome) throws InterruptedException {
         metodos.pesquisaProduto(nome);
         metodos.acessarProdutoPesquisa(nome);
     }
@@ -31,7 +32,8 @@ public class Steps {
     }
 
     @Então("valido se os valores da página do produto é o mesmo com o valor do carrinho")
-    public void validarValoresPaginaCarrinho(String nome) {
+    public void validarValoresPaginaCarrinho() {
         metodos.armazenarValorProdutoCarrinho();
+        metodos.compararValores();
     }
 }
