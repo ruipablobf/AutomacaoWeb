@@ -1,6 +1,5 @@
 package org.example.produtoapi;
 import io.restassured.response.Response;
-import org.json.JSONArray;
 import org.json.JSONObject;
 import org.junit.jupiter.api.Assertions;
 
@@ -29,7 +28,7 @@ public class ProdutoController {
             System.out.println("ID: " + jsonObject.get("id") +
                     "\nTitle: " + jsonObject.get("title"));
         } catch (Exception e) {
-            Assertions.fail("ão foi possível apresentar os dados de retorno da api");
+            Assertions.fail("Não foi possível apresentar os dados de retorno da api");
         }
     }
 
